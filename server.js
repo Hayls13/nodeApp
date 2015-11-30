@@ -9,13 +9,11 @@ var client = new Twitter({
     access_token_secret: 'efrJVLugBwFeAVnWSx1Cx6Z8N8IJlSB3js7XjW4KUYiuc'
 });
 
-http.createServer(function(request, response) {
-    response.writeHead(200, { 'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin' : '*' });
 
+    http.createServer(function(request, response) {
+        response.writeHead(200, { 'Content-Type': 'text/plain' });
+        client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
+            response.end(JSON.stringify(tweets));
+        });
+    }).listen(port);
 
-    client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
-        console.log(tweets);
-    });
-
-}).listen(port);
