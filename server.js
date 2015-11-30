@@ -1,1 +1,1 @@
-require("./twittertest");
+require("./twittertest.js");
