@@ -1,7 +1,7 @@
 require(".../twittertest.js");
 
 var Twitter = require('twitter');
-var http = require('http')
+var http = require('http');
 var port = process.env.PORT || 1337;
 
 var client = new Twitter({
