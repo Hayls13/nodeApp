@@ -1,6 +1,4 @@
-/**
- * Created by 1300777 on 30/11/2015.
- */
+
 
 var Twitter = require('twitter');
 
