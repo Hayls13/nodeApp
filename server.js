@@ -9,9 +9,6 @@ var client = new Twitter({
     access_token_secret: 'efrJVLugBwFeAVnWSx1Cx6Z8N8IJlSB3js7XjW4KUYiuc'
 });
 
-client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
-    console.log(tweets);
-});
 
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json',
@@ -21,9 +18,3 @@ http.createServer(function(request, response) {
     });
 }).listen(port);
 
-var json = [];
-for (var i =0; i< tweets.statuses.length ; i++)
-{
-    json.push({name: tweets.statuses[i].user.name, text: tweets.statuses[i].text});
-}
-response.end(JSON.stringify(json));
