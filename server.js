@@ -19,7 +19,7 @@ http.createServer(function(request, response) {
     });
 }).listen(port);
 
-var json = [];
+/*var json = [];
 
 for (var i =0; i< tweets.statuses.length ; i++)
 {
