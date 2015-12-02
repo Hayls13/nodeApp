@@ -22,8 +22,9 @@ var json = [];
 
 for (var i =0; i< tweets.statuses.length; i++){
     json.push({name: tweets.statuses[i].user.name, text: tweets.statuses[i].text});
+    response.end(JSON.stringify(json));
 }
 
-response.rend(JSON.stringify(json));
+
 
 
