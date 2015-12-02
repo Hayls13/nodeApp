@@ -12,3 +12,5 @@ var client = new Twitter({
 client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
     console.log(tweets);
 });
+
+
