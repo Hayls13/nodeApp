@@ -10,6 +10,7 @@ var client = new Twitter({
 });
 
 
+
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin' : '*' });
@@ -18,3 +19,9 @@ http.createServer(function(request, response) {
     });
 }).listen(port);
 
+var json = [];
+for (var i =0; i< tweets.statuses.length ; i++)
+{
+    json.push({name: tweets.statuses[i].user.name, text: tweets.statuses[i].text});
+}
+response.end(JSON.stringify(json));
