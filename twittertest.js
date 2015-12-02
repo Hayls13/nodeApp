@@ -1,4 +1,6 @@
 var Twitter = require('twitter');
+var http = require('http');
+var port = process.env.PORT || 1337;
 
 var client = new Twitter({
     consumer_key: 'uXl8060AfB6TtVZOjUPbPqiuU',
@@ -10,6 +12,14 @@ var client = new Twitter({
 client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
     console.log(tweets);
 });
+
+http.createServer(function(request, response) {
+    response.writeHead(200, { 'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin' : '*' });
+    client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
+        response.end(JSON.stringify(tweets));
+    });
+}).listen(port);
 
 var json = [];
 for (var i =0; i< tweets.statuses.length ; i++)
